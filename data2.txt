@@ -1,0 +1,6 @@
+North America	5
+Europe	5
+Africa	3
+Asia	7
+Australia	2
+South America	2

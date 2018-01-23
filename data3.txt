@@ -1,0 +1,163 @@
+Alaska	Northwest Territory
+Alaska	Alberta
+Alaska	Kamchatka
+Alberta	Alaska
+Alberta	Northwest Territory
+Alberta	Ontario
+Alberta	Western United States
+Central America	Western United States
+Central America	Eastern United States
+Central America	Venezuela
+Eastern United States	Central America
+Eastern United States	Ontario
+Eastern United States	Western United States
+Eastern United States	Quebec
+Greenland	Iceland
+Greenland	Quebec
+Greenland	Ontario
+Greenland	Northwest Territory
+Northwest Territory	Alaska
+Northwest Territory	Alberta
+Northwest Territory	Ontario
+Northwest Territory	Greenland
+Ontario	Greenland
+Ontario	Northwest Territory
+Ontario	Alberta
+Ontario	Western United States
+Ontario	Eastern United States
+Ontario	Quebec
+Quebec	Greenland
+Quebec	Ontario
+Quebec	Eastern United States
+Western United States	Central America
+Western United States	Eastern United States
+Western United States	Ontario
+Western United States	Alberta
+Argentina	Peru
+Argentina	Brazil
+Brazil	Venezuela
+Brazil	Peru
+Brazil	Argentina
+Brazil	North Africa
+Peru	Venezuela
+Peru	Argentina
+Peru	Brazil
+Venezuela	Brazil
+Venezuela	Peru
+Venezuela	Argentina
+Great Britain	Iceland
+Great Britain	Scandinavia
+Great Britain	Northern Europe
+Great Britain	Western Europe
+Iceland	Greenland
+Iceland	Scandinavia
+Iceland	Great Britain
+Northern Europe	Scandinavia
+Northern Europe	Ukraine
+Northern Europe	Southern Europe
+Northern Europe	Western Europe
+Northern Europe	Great Britain
+Scandinavia	Ukraine
+Scandinavia	Northern Europe
+Scandinavia	Iceland
+Southern Europe	Middle East
+Southern Europe	Egypt
+Southern Europe	North Africa
+Southern Europe	Western Europe
+Southern Europe	Northern Europe
+Southern Europe	Ukraine
+Ukraine	Southern Europe
+Ukraine	Ural
+Ukraine	Afghanistan
+Ukraine	Middle East
+Ukraine	Northern Europe
+Ukraine	Scandinavia
+Western Europe	Great Britain
+Western Europe	Northern Europe
+Western Europe	Southern Europe
+Western Europe	North Africa
+Congo	North Africa
+Congo	East Africa
+Congo	South Africa
+East Africa	Middle East
+East Africa	Egypt
+East Africa	North Africa
+East Africa	Congo
+East Africa	South Africa
+East Africa	Madagascar
+Egypt	East Africa
+Egypt	North Africa
+Egypt	Southern Europe
+Egypt	Middle East
+Madagascar	East Africa
+Madagascar	South Africa
+North Africa	Brazil
+North Africa	Western Europe
+North Africa	Southern Europe
+North Africa	Egypt
+North Africa	East Africa
+North Africa	Congo
+South Africa	Congo
+South Africa	East Africa
+South Africa	Madagascar
+Afghanistan	Ural
+Afghanistan	Ukraine
+Afghanistan	Middle East
+Afghanistan	India
+Afghanistan	China
+China	Siam
+China	India
+China	Afghanistan
+China	Ural
+China	Siberia
+China	Mongolia
+India	Middle East
+India	Afghanistan
+India	China
+India	Siam
+Irkutsk	Yakutsk
+Irkutsk	Siberia
+Irkutsk	Mongolia
+Irkutsk	Kamchatka
+Japan	Kamchatka
+Japan	Mongolia
+Kamchatka	Yakutsk
+Kamchatka	Irkutsk
+Kamchatka	Mongolia
+Kamchatka	Japan
+Kamchatka	Alaska
+Middle East	Egypt
+Middle East	East Africa
+Middle East	Southern Europe
+Middle East	Ukraine
+Middle East	Afghanistan
+Middle East	India
+Mongolia	China
+Mongolia	Siberia
+Mongolia	Irkutsk
+Mongolia	Kamchatka
+Mongolia	Japan
+Siam	China
+Siam	India
+Siam	Indonesia
+Siberia	Ural
+Siberia	China
+Siberia	Mongolia
+Siberia	Irkutsk
+Siberia	Yakutsk
+Ural	SIberia
+Ural	China
+Ural	Afghanistan
+Ural	Ukraine
+Yakutsk	Kamchatka
+Yakutsk	Irkutsk
+Yakutsk	Siberia
+Eastern Australia	Western Australia
+Eastern Australia	New Guinea
+Indonesia	Siam
+Indonesia	New Guinea
+Indonesia	Western Australia
+New Guinea	Eastern Australia
+New Guinea	Indonesia
+Western Australia	Eastern Australia
+Western Australia	Indonesia
