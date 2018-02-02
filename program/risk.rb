@@ -3,15 +3,15 @@ class Game
 require 'rubygems'
 require 'sqlite3'
 
-	attr_reader :players, :countries, :DB	
+	attr_reader :players, :country_array	
 
 	def initialize()
 
 		File.delete("../database/countries.sqlite") if File.exists? "../database/countries.sqlite"
 		File.delete("log.txt") if File.exists? "log.txt"
 
-		@countries_hash = {}
-		@region_hash = {}
+		@country_array = []
+		@region_array = []
 		@players = Array.new
 		@DB = SQLite3::Database.new("../database/countries.sqlite")
 	end
@@ -42,6 +42,8 @@ require 'sqlite3'
         CREATE TABLE CountryData (
                 Country TINYTEXT,
                 Region TINYTEXT,
+		Owner TINYTEXT,
+		Reinforcements TINYTEXT,
                 PRIMARY KEY (Country),
                 FOREIGN KEY (Region) REFERENCES ReinforcementData(Region)
                 FOREIGN KEY (Country) REFERENCES ConnectorData(Connector)
@@ -80,7 +82,7 @@ require 'sqlite3'
 		)
 		")
 
-		insert_query_CountryData = "INSERT INTO CountryData(Country, Region) VALUES(?, ?)"
+		insert_query_CountryData = "INSERT INTO CountryData(Country, Region, Owner, Reinforcements) VALUES(?, ?, ?, ?)"
 		insert_query_ReinforcementData = "INSERT INTO ReinforcementData(Region, Reinforcements) VALUES(?, ?)"
 		insert_query_ConnectorData = "INSERT INTO ConnectorData(Connector, Connectee) VALUES(?, ?)"
 
@@ -93,7 +95,7 @@ require 'sqlite3'
        	 	end
 
 		country_array.length.times do |index|
-                	@DB.execute(insert_query_CountryData, country_array[index][0], country_array[index][1].chomp)
+                	@DB.execute(insert_query_CountryData, country_array[index][0], country_array[index][1].chomp, "not yet allocated", "not yet allocated")
         	end
 
 		File.foreach("../data/data2.txt") do |line|
@@ -116,30 +118,34 @@ require 'sqlite3'
 
 	def setup_countries
 		#Assign countries to country objects
-		country_names = @DB.execute("SELECT Country FROM CountryData")
+		country_names = @DB.execute("SELECT Country, Region FROM CountryData")
 		country_names.each do |row|
-			countryString = row.join()
+			countryString = row[0]
+			regionString = row[1]
 			q = "SELECT Connectee FROM ConnectorData WHERE Connector = '" + countryString + "';"
 			connectionArray = @DB.execute(q)
 
-			@countries_hash[countryString] = Country.new(countryString, connectionArray)
+			countryObject = Country.new(countryString, connectionArray, regionString)
+			@country_array.push(countryObject)
 	
 		end
 			log("Countries have been assigned to country objects.")
 		
 		#Assign countries to an owner
 		count = 0
-		@countries_hash.each do |country_name, country|
+		@country_array.each do |country|
 			if count < @players.length
 				@players[count].add(country)
 				@players[count].addTroops(country, 1)
-				log("#{@players[count].name} has been assigned #{country_name}.")
+				country.owner = @players[count]
+				log("#{@players[count].name} has been assigned #{country.name}.")
 				count += 1
 			else
 				count = 0
 				@players[count].add(country)
 				@players[count].addTroops(country, 1)
-				log("#{@players[count].name} has been assigned #{country_name}.")
+				country.owner = @players[count]
+				log("#{@players[count].name} has been assigned #{country.name}.")
 				count = 1
 			end 	
 
@@ -150,11 +156,18 @@ require 'sqlite3'
 	end
 
 	def setup_regions
-		#Assign regions to a hash
-		regions = @DB.execute("SELECT Region FROM ReinforcementData") 
-		regions.each do |region|
-			@region_hash[region.join('')] = @DB.execute("SELECT Country FROM Countrydata WHERE Region ='#{region.join('')}';") 
-		end
+		#Creates region object
+		regions = @DB.execute("SELECT Region, Reinforcements FROM ReinforcementData") 
+		regions.each do |region_data|
+			region_object = Region.new(region_data[0], region_data[1])
+			@country_array.each do |country| 
+				if country.region === region_data[0]
+					region_object.countries.push(country)
+				end
+			end
+
+			@region_array.push(region_object)
+		end	
 	end
 
 	def setup_starting_reinforcements
@@ -185,81 +198,105 @@ require 'sqlite3'
 		#Players take turns until game is over
 		turn = 0
 		#while !game_over 
-			@players.each do |player|
-				log("Turn #{turn.to_s} has begun.")
-				player.taketurn(@region_hash, self)
-				turn += 1
+			#@players.each do |player|
+				#log("Turn #{turn.to_s} has begun.")
+				@players[0].taketurn(@region_array, @country_array, self)
+				#turn += 1
+			#end
+		#end
+	end		
+end
+
+class Strategy
+	
+	def initialize(region_array, country_array, player)
+		@region_array = region_array
+		@country_array = country_array
+		@player = player
+	end
+	
+	#Create metrics for computer to evaluate map.
+	
+	def create_metrics
+		#Proportion of troops owned per region
+		troop_density = {}
+		country_density = {}
+		metrics = {}
+
+		cou_den_all = 0
+		cou_den_player = 0
+
+		cou_count = 0
+		cou_count_player = 0
+
+		@region_array.each do |region|
+			region.countries.each do |country|
+				cou_den_all += country.troops
+				cou_count += 1
+				if country.owner === @player
+					cou_den_player += country.troops
+					cou_count_player += 1
+				end
 			end
+			troop_density["Troop Density #{region.name}"] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
+			country_density["Country Density #{region.name}"] = (cou_count_player.to_f/cou_count.to_f).round(2)
+			metrics[region.name] = [troop_density, country_density]
+
+			cou_den_all = 0
+			cou_den_player = 0
+			cou_count = 0
+			cou_count_player = 0
 		end
+		puts metrics
+	end	
+
+
+	#identify appropriate strategy
+	def identify
+	
+	end
+	
+	#execute appropriate strategy		
+	def execute
+		create_metrics	
+	end
+
 end
 
 class Player
 
-#Need a "load game knowledge" bit where region hash comes in.
-
-	attr_reader :name, :reinforcement_pool, :countries_owned
+	attr_reader :name, :reinforcement_pool, :countries_owned, :regions_owned
 	attr_writer :reinforcement_pool
 
 	def initialize(name, reinforcement_pool = 0)
 		@name = name
 		@countries_owned = Array.new
 		@reinforcement_pool = reinforcement_pool
+		@regions_owned = Array.new
 	end
 
-	def taketurn(region_hash, game)
-		#Assign reinforcements
-			#Country reinforcements
-			@reinforcement_pool += @countries_owned.length/3.ceil
-			game.log("#{self.name} gained #{@countries_owned.length/3.ceil} reinforcements from territories.")
-			
-			#Create an array for include method below.		
-			country_array = []
-			@countries_owned.each_with_index do |country, index|
-				country_array[index] = country.name
+	def taketurn(region_array, country_array, game)
+		# Count reinforcements earned.
+		# Reinforcements related to countries held.
+		@reinforcement_pool += @countries_owned.length/3.ceil
+		game.log("#{self.name} gained #{@countries_owned.length/3.ceil} reinforcements from territories.")
+
+		#Reinforcements related to regions held.
+		region_array.each do |region|
+			if region.countries - countries_owned === []
+				regions_owned.push(region)
+				@reinforcement_pool += region.reinforcements
+				game.log("#{self.name} gained #{region.reinforcements} from controlling #{region.name}.")
+			else
+				regions_owned.delete(region)
 			end
-
-			#Region owned reinforcements
-			check = 0
-			region_hash.each do |key, value|
-				value.each do |country|
-					if country_array.include? country.join('')
-						check = 0
-					else 
-						check += 1
-					end
-
-				end
-
-				if (check === 0 && key === "Africa")
-					@reinforcement_pool += 3
-					game.log("#{self.name} gained 3 extra reinforcements for controlling Africa") 
-				elsif (check === 0 && key === "Europe")
-					@reinforcement_pool += 5
-					game.log("#{self.name} gained 5 extra reinforcements for controlling Europe" )
-				elsif (check === 0 && key === "Asia")
-					@reinforcement_pool += 7
-					game.log("#{self.name} gained 7 extra reinforcements for controlling Asia" )
-				elsif (check === 0 && key === "North America")
-					@reinforcement_pool += 5
-					game.log("#{self.name} gained 5 extra reinforcements for controlling North America") 
-				elsif (check === 0 && key === "Australia")
-					@reinforcement_pool += 2
-					game.log("#{self.name} gained 2 extra reinforcements for controlling Australia" )
-				elsif (check === 0 && key === "South America")
-					@reinforcement_pool += 2
-					game.log("#{self.name} gained 2 extra reinforcements for controlling South America") 
-				else
-					game.log("#{self.name} did not control this region.") 
-						
-				end
-				
-			end			
+		end			
 
 			game.log("#{self.name} gained a total of #{@reinforcement_pool} reinforcements this turn.")
 
 			#Deploy strategy for this turn
-			#turn_strategy = Strategy.new
-			#turn_strategy.execute
+			turn_strategy = Strategy.new(region_array, country_array, self)
+			turn_strategy.execute
 	end
 	
 	
@@ -286,13 +323,34 @@ end
 
 class Country
 
-	attr_reader :connections, :name, :owner, :troops
+	attr_reader :connections, :name, :owner, :troops, :region
 	attr_writer :owner, :troops
 
-	def initialize(name, connections, troops = 0)
+	def initialize(name, connections, region, troops = 0)
 		@connections = connections
 		@name = name
+		@region = region
 		@troops = troops
 	end
 
 end
+
+class Region
+	
+	attr_reader :reinforcements, :countries, :name 
+	attr_writer :countries
+	
+	def initialize(name, reinforcements)
+
+	@name = name
+	@countries = Array.new
+	@reinforcements = reinforcements
+
+	end
+end
+
+
+
+
+
+
