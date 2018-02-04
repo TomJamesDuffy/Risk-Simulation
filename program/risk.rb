@@ -218,7 +218,7 @@ class Strategy
 	#Create metrics for computer to evaluate map.
 	
 	def create_metrics
-		#Proportion of troops owned per region
+		#Proportion of troops owned per region & Proportion of countries owned per region
 		troop_density = {}
 		country_density = {}
 		metrics = {}
@@ -238,27 +238,62 @@ class Strategy
 					cou_count_player += 1
 				end
 			end
-			troop_density["Troop Density #{region.name}"] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
-			country_density["Country Density #{region.name}"] = (cou_count_player.to_f/cou_count.to_f).round(2)
-			metrics[region.name] = [troop_density, country_density]
+			troop_density["#{region.name}"] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
+			country_density["#{region.name}"] = (cou_count_player.to_f/cou_count.to_f).round(2)
 
 			cou_den_all = 0
 			cou_den_player = 0
 			cou_count = 0
 			cou_count_player = 0
 		end
-		puts metrics
+		metrics["Metrics"] = [troop_density, country_density]
 	end	
 
 
 	#identify appropriate strategy
-	def identify
-	
+	def allocate_reinforcements(metrics)
+	#Assign reinformcements to strategy and random
+		strategy = (@player.reinforcement_pool * 0.7).round(0)
+		random_rf = @player.reinforcement_pool - strategy
+		hold = ""
+		tracker = 0.0
+
+		#Identify region with greatest potential
+		metrics[0].each do |key, value| 
+			if (tracker < value) && (value != 1)
+				tracker = value
+				hold = key
+			end
+			
+		end
+
+		#Allocate 70% of reinforcement pool to region with greatest potential		
+		while strategy > 0 
+			@player.countries_owned.each do |country|
+				if country.region === hold
+					@player.addTroops(country, 1)
+					strategy -= 1
+				end
+			end
+		end
+		
+		#Allocate remainder of reinforcement pool randomly among the players owned countries
+		while random_rf > 0
+			random = Random.rand*(@player.countries_owned.length).ceil
+			@player.addTroops(@player.countries_owned[random], 1)
+			random_rf -= 1
+		end
+		
 	end
-	
-	#execute appropriate strategy		
+
+	def identify_and_attack_targets(metrics)
+		
+	end
+
+	#Execute strategy		
 	def execute
-		create_metrics	
+		allocate_reinforcements(create_metrics)
+		identify_and_attack_targets(create_metrics)
 	end
 
 end
@@ -308,6 +343,63 @@ class Player
 	def roll_dice
 		roll = (Random.rand*6).ceil
 	end
+	
+	def roll_attack_dice(defenderDice, attackerDice)
+		attackerTroopsDestroyed = 0
+		defenderTroopsDestroyed = 0
+
+
+		defender_array = []
+		attacker_array = []
+		
+		#Roll dice and push result to array for attacker and defender
+		defenderDice.times do
+			roll
+			defender_array.push(roll)
+		end
+
+		attackerDice.times do
+			roll
+			attacker_array.push(roll)
+		end
+		
+		#Order array from smallest to largest
+		defender_array.sort!
+		attacker_array.sort!
+
+		#If the defender has more dice remove the lowest so it is equal to the attacker
+		#If the attacker has more dice do the inverse.
+		if defender_array.length > attacker_array.length
+			excess = defender_array.length - attacker_array.length
+			excess.times do
+				defender_array.shift!
+			end
+		elsif attacker_array.length > defender_array.length
+			excess = attacker_array.length - defender_array.length
+			excess.times do
+				attacker_array.shift!
+			end
+		end
+
+		outcome = []
+		#Compare the attacking and defending dice and push to an array
+		attacker_array.length.each_with_index do |item, index|
+			outcome.push(attacker_array[index] - defender_array[index])
+			
+		end	
+		#Based on the number of comparisons destroy either an attacking or defending troop.
+		outcome.each do |item|
+			if outcome <= 0
+				attackerTroopsDestroyed += 1
+			elsif outcome > 0
+				defenderTroopsDestroyed =+ 1
+			end	
+		end		
+
+		#return the number of attacking/defending troops that have been destroyed.
+	
+		return attackerTroopsDestroyed, defenderTroopsDestroyed 
+	end
 
 	def addTroops(country, number)
 		country.troops += number.to_i
@@ -316,6 +408,45 @@ class Player
 
 	def subTroops(country, number)
 		country.troops -= number.to_i
+	end
+	
+	def attack(attackingCountry, defendingCountry, defendingPlayer, troopsAttacker, troopsDefender)
+
+		atd = 0
+		dtd = 0
+
+		while troopsAttacker > 0 || troopsDefender > 0
+			if troopsAttacker >= 3 && troopsDefender >= 2
+				a, d = roll_attack_dice(3, 2)
+			elsif troopsAttacker >= 3 && troopsDefender = 1
+				a, d = roll_attack_dice(3, 1)
+			elsif troopsAttacker = 2 && troopsDefender = 1
+				a, d = roll_attack_dice(2, 2)
+			elsif troopsAttacker = 2 && troopsDefender = 1
+				a, d = roll_attack_dice(2, 1)
+			elsif troopsAttacker = 1 && troopsDefender = 1
+				a, d = roll_attack_dice(1, 1)
+			elsif troopsAttacker = 1 && troopsDefender = 2
+				a, d = roll_attack_dice(1, 2)
+			end
+
+			troopsAttacker -= a
+			troopsDefender -= d
+		
+			atd += a
+			dtd += d
+		end
+			@player.subTroops(attackingCountry, atd)
+			@player.subTroops(defendingCountry, dtd)
+		
+		if troopsDefender === 0 
+			defendingCountry.owner = @player
+			@player.countries_owned.push(defendingCountry)
+			defendingPlayer.countries_owned.delete(defendingCountry)
+			defendingCountry.troops = (troopsAttacker - atd)
+			
+		end
+			
 	end
 	
 end

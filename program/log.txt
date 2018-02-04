@@ -44,48 +44,48 @@ Computer 1 has been assigned Indonesia.
 Computer 0 has been assigned New Guinea.
 Computer 1 has been assigned Western Australia.
 Players have been assigned their starting countries.
-Computer 0 owns Alaska which has 2 reinforcements.
-Computer 0 owns Central America which has 4 reinforcements.
-Computer 0 owns Greenland which has 3 reinforcements.
+Computer 0 owns Alaska which has 1 reinforcements.
+Computer 0 owns Central America which has 2 reinforcements.
+Computer 0 owns Greenland which has 2 reinforcements.
 Computer 0 owns Ontario which has 4 reinforcements.
-Computer 0 owns Western United States which has 4 reinforcements.
-Computer 0 owns Brazil which has 3 reinforcements.
+Computer 0 owns Western United States which has 5 reinforcements.
+Computer 0 owns Brazil which has 2 reinforcements.
 Computer 0 owns Venezuela which has 3 reinforcements.
 Computer 0 owns Iceland which has 5 reinforcements.
-Computer 0 owns Scandinavia which has 5 reinforcements.
-Computer 0 owns Ukraine which has 1 reinforcements.
+Computer 0 owns Scandinavia which has 3 reinforcements.
+Computer 0 owns Ukraine which has 2 reinforcements.
 Computer 0 owns Congo which has 1 reinforcements.
 Computer 0 owns Egypt which has 3 reinforcements.
-Computer 0 owns North Africa which has 4 reinforcements.
-Computer 0 owns Afghanistan which has 2 reinforcements.
-Computer 0 owns India which has 1 reinforcements.
-Computer 0 owns Japan which has 2 reinforcements.
-Computer 0 owns Middle East which has 4 reinforcements.
-Computer 0 owns Siam which has 4 reinforcements.
-Computer 0 owns Ural which has 3 reinforcements.
-Computer 0 owns Eastern Australia which has 2 reinforcements.
-Computer 0 owns New Guinea which has 1 reinforcements.
-Computer 1 owns Alberta which has 3 reinforcements.
-Computer 1 owns Eastern United States which has 3 reinforcements.
-Computer 1 owns Northwest Territory which has 2 reinforcements.
-Computer 1 owns Quebec which has 3 reinforcements.
+Computer 0 owns North Africa which has 2 reinforcements.
+Computer 0 owns Afghanistan which has 3 reinforcements.
+Computer 0 owns India which has 6 reinforcements.
+Computer 0 owns Japan which has 5 reinforcements.
+Computer 0 owns Middle East which has 3 reinforcements.
+Computer 0 owns Siam which has 3 reinforcements.
+Computer 0 owns Ural which has 1 reinforcements.
+Computer 0 owns Eastern Australia which has 3 reinforcements.
+Computer 0 owns New Guinea which has 2 reinforcements.
+Computer 1 owns Alberta which has 4 reinforcements.
+Computer 1 owns Eastern United States which has 2 reinforcements.
+Computer 1 owns Northwest Territory which has 5 reinforcements.
+Computer 1 owns Quebec which has 1 reinforcements.
 Computer 1 owns Argentina which has 4 reinforcements.
-Computer 1 owns Peru which has 2 reinforcements.
-Computer 1 owns Great Britain which has 1 reinforcements.
-Computer 1 owns Northern Europe which has 4 reinforcements.
+Computer 1 owns Peru which has 4 reinforcements.
+Computer 1 owns Great Britain which has 3 reinforcements.
+Computer 1 owns Northern Europe which has 1 reinforcements.
 Computer 1 owns Southern Europe which has 2 reinforcements.
 Computer 1 owns Western Europe which has 1 reinforcements.
-Computer 1 owns East Africa which has 3 reinforcements.
-Computer 1 owns Madagascar which has 5 reinforcements.
-Computer 1 owns South Africa which has 3 reinforcements.
+Computer 1 owns East Africa which has 2 reinforcements.
+Computer 1 owns Madagascar which has 2 reinforcements.
+Computer 1 owns South Africa which has 2 reinforcements.
 Computer 1 owns China which has 2 reinforcements.
-Computer 1 owns Irkutsk which has 3 reinforcements.
-Computer 1 owns Kamchatka which has 6 reinforcements.
-Computer 1 owns Mongolia which has 2 reinforcements.
-Computer 1 owns Siberia which has 2 reinforcements.
-Computer 1 owns Yakutsk which has 4 reinforcements.
-Computer 1 owns Indonesia which has 3 reinforcements.
-Computer 1 owns Western Australia which has 3 reinforcements.
+Computer 1 owns Irkutsk which has 2 reinforcements.
+Computer 1 owns Kamchatka which has 9 reinforcements.
+Computer 1 owns Mongolia which has 1 reinforcements.
+Computer 1 owns Siberia which has 3 reinforcements.
+Computer 1 owns Yakutsk which has 3 reinforcements.
+Computer 1 owns Indonesia which has 4 reinforcements.
+Computer 1 owns Western Australia which has 4 reinforcements.
 Players have been assigned their starting reinforcements.
 Computer 0 gained 7 reinforcements from territories.
 Computer 0 gained a total of 7 reinforcements this turn.
