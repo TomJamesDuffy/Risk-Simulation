@@ -149,10 +149,22 @@ require 'sqlite3'
 				count = 1
 			end 	
 
-		
+			setup_country_connections
 		end
 
 		log("Players have been assigned their starting countries.")
+	end
+
+	def setup_country_connections
+		@country_array.each do |country|
+			country.connections.each do |connecting_country|
+				@country_array.each do |country_2|
+					if connecting_country.join("").strip == country_2.name
+						country.connectionsObjects.push(country_2)
+					end
+				end
+			end
+		end
 	end
 
 	def setup_regions
@@ -163,6 +175,7 @@ require 'sqlite3'
 			@country_array.each do |country| 
 				if country.region === region_data[0]
 					region_object.countries.push(country)
+					country.regionObject = region_object
 				end
 			end
 
@@ -187,32 +200,49 @@ require 'sqlite3'
 		end
 		@players.each do |player|
 			player.countries_owned.each do |country|
-				log("#{player.name} owns #{country.name} which has #{country.troops} reinforcements.")
+				log("#{player.name} owns #{country.name} which has #{country.troops} troops.")
 			end
 		end
 
 		log("Players have been assigned their starting reinforcements.") 
+		log("---------------------------------------------------------") 
+		log("GAME START")
+		log("---------------------------------------------------------") 
 	end
 	
 	def run_game
 		#Players take turns until game is over
-		turn = 0
-		#while !game_over 
-			#@players.each do |player|
-				#log("Turn #{turn.to_s} has begun.")
-				@players[0].taketurn(@region_array, @country_array, self)
-				#turn += 1
-			#end
-		#end
+		turn = 0 
+		game_over = false
+		while !game_over 
+			@players.each do |player|
+				turn += 1
+				log("Turn #{turn.to_s} has begun.")
+				player.taketurn(@region_array, @country_array, self)
+
+				if player.countries_owned.length == 42
+					end_game(player)
+				end
+			end
+		end
 	end		
+	
+	def end_game(player)
+		puts "#{player.name} has won by conquering all of the countries!"
+		log("#{player.name} has won by conquering all of the countries!")
+		game_over = true
+		exit
+	end
 end
 
 class Strategy
 	
-	def initialize(region_array, country_array, player)
+	def initialize(region_array, country_array, player, game)
 		@region_array = region_array
 		@country_array = country_array
 		@player = player
+		@target_region = ""
+		@game = game
 	end
 	
 	#Create metrics for computer to evaluate map.
@@ -238,8 +268,8 @@ class Strategy
 					cou_count_player += 1
 				end
 			end
-			troop_density["#{region.name}"] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
-			country_density["#{region.name}"] = (cou_count_player.to_f/cou_count.to_f).round(2)
+			troop_density[region] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
+			country_density[region] = (cou_count_player.to_f/cou_count.to_f).round(2)
 
 			cou_den_all = 0
 			cou_den_player = 0
@@ -255,45 +285,90 @@ class Strategy
 	#Assign reinformcements to strategy and random
 		strategy = (@player.reinforcement_pool * 0.7).round(0)
 		random_rf = @player.reinforcement_pool - strategy
-		hold = ""
 		tracker = 0.0
+		fresh_expansion = false
 
 		#Identify region with greatest potential
 		metrics[0].each do |key, value| 
 			if (tracker < value) && (value != 1)
 				tracker = value
-				hold = key
-			end
-			
+				@target_region = key
+			elsif value == 0
+				fresh_expansion = true
+				#SELECT REGION/REGIONS IF FRESH EXPANSION IS REQUIRED.		
+				#FRESH EXPANSION IS WHEN THE PLAYER OWNS X REGIONS BUT NO MORE. 
+				#AS A RESULT A REGION WITH NO COUNTRIES IS SELECTED (VALUE = 0).
+				#AS THE FOLLOWING COUNTRIES PLACES REINFORCEMENTS ONLY INTO REGIONS YOU ALREADY HAVE A PRESENCE IN 
+				#NEED TO ADD LOGIC TO ADD REINFORCEMENTS TO COUNTRIES THAT ARE BORDERING UNOWNED REGIONS.
+			end	
 		end
 
+		@game.log("#{@player.name} identified #{@target_region.name} as being a priority, therefore most reinforcements have been allocated there.")		
+
 		#Allocate 70% of reinforcement pool to region with greatest potential		
-		while strategy > 0 
-			@player.countries_owned.each do |country|
-				if country.region === hold
-					@player.addTroops(country, 1)
-					strategy -= 1
+		if fresh_expansion = false
+			while strategy > 0 
+				@player.countries_owned.each do |country|
+					if country.region === @target_region.name
+						@player.addTroops(country, 1)
+						strategy -= 1
+					end
 				end
 			end
-		end
 		
+
+
 		#Allocate remainder of reinforcement pool randomly among the players owned countries
-		while random_rf > 0
-			random = Random.rand*(@player.countries_owned.length).ceil
-			@player.addTroops(@player.countries_owned[random], 1)
-			random_rf -= 1
+			while random_rf > 0
+				random = Random.rand*(@player.countries_owned.length).ceil
+				@player.addTroops(@player.countries_owned[random], 1)
+				random_rf -= 1
+			end
+		elsif fresh_expansion  = true
+
+		#LOGIC IF FRESH EXPANSION IS REQUIRED
+			
+
 		end
 		
 	end
 
-	def identify_and_attack_targets(metrics)
-		
+	def identify_targets
+		attackFrom = ""
+		attackTo = ""
+
+		@player.countries_owned.each do |country|
+			if country.regionObject === @target_region && country.troops > 3
+				attackFrom = country
+				country.connectionsObjects.each do |country_2|
+					@target_region.countries.each do |focus_region_c|
+						if (focus_region_c.name === country_2.name) && ((country.troops - focus_region_c.troops) > 2) && (country_2.owner != @player)
+							attackTo = country_2
+						end
+					end
+				end
+			end
+		end			
+		return attackFrom, attackTo
+	end
+	
+	def attack_targets
+		attacksCompleted = false
+		until attacksCompleted == true 
+			attackCountry, defendCountry = identify_targets
+			if attackCountry.class == Country && defendCountry.class == Country
+				@player.attack(attackCountry, defendCountry, defendCountry.owner, attackCountry.troops - 1, defendCountry.troops, @game)
+			else
+				attacksCompleted = true
+			end
+			 
+		end
 	end
 
 	#Execute strategy		
 	def execute
 		allocate_reinforcements(create_metrics)
-		identify_and_attack_targets(create_metrics)
+		attack_targets
 	end
 
 end
@@ -313,15 +388,15 @@ class Player
 	def taketurn(region_array, country_array, game)
 		# Count reinforcements earned.
 		# Reinforcements related to countries held.
-		@reinforcement_pool += @countries_owned.length/3.ceil
-		game.log("#{self.name} gained #{@countries_owned.length/3.ceil} reinforcements from territories.")
+		@reinforcement_pool += ((@countries_owned.length)/3).ceil
+		game.log("#{self.name} gained #{@reinforcement_pool} reinforcements from territories.")
 
 		#Reinforcements related to regions held.
 		region_array.each do |region|
 			if region.countries - countries_owned === []
 				regions_owned.push(region)
 				@reinforcement_pool += region.reinforcements
-				game.log("#{self.name} gained #{region.reinforcements} from controlling #{region.name}.")
+				game.log("#{self.name} gained #{region.reinforcements} reinforcements from controlling #{region.name}.")
 			else
 				regions_owned.delete(region)
 			end
@@ -330,8 +405,17 @@ class Player
 			game.log("#{self.name} gained a total of #{@reinforcement_pool} reinforcements this turn.")
 
 			#Deploy strategy for this turn
-			turn_strategy = Strategy.new(region_array, country_array, self)
+			turn_strategy = Strategy.new(region_array, country_array, self, game)
 			turn_strategy.execute
+			
+			
+			game.log("At the end of the turn the map looks as follows")
+
+			game.players.each do |player|
+				player.countries_owned.each do |country|
+					game.log("#{player.name} owns #{country.name} which has #{country.troops} troops.")
+				end
+			end
 	end
 	
 	
@@ -342,25 +426,24 @@ class Player
 	
 	def roll_dice
 		roll = (Random.rand*6).ceil
+		return roll
 	end
 	
-	def roll_attack_dice(defenderDice, attackerDice)
+	def roll_attack_dice(attackerDice, defenderDice)
 		attackerTroopsDestroyed = 0
 		defenderTroopsDestroyed = 0
 
-
 		defender_array = []
 		attacker_array = []
-		
+		outcome = []
+
 		#Roll dice and push result to array for attacker and defender
 		defenderDice.times do
-			roll
-			defender_array.push(roll)
+			defender_array.push(roll_dice)
 		end
 
 		attackerDice.times do
-			roll
-			attacker_array.push(roll)
+			attacker_array.push(roll_dice)
 		end
 		
 		#Order array from smallest to largest
@@ -372,32 +455,29 @@ class Player
 		if defender_array.length > attacker_array.length
 			excess = defender_array.length - attacker_array.length
 			excess.times do
-				defender_array.shift!
+				defender_array.shift
 			end
 		elsif attacker_array.length > defender_array.length
 			excess = attacker_array.length - defender_array.length
 			excess.times do
-				attacker_array.shift!
+				attacker_array.shift
 			end
 		end
 
-		outcome = []
 		#Compare the attacking and defending dice and push to an array
-		attacker_array.length.each_with_index do |item, index|
+		attacker_array.length.times do |index|
 			outcome.push(attacker_array[index] - defender_array[index])
-			
 		end	
+
 		#Based on the number of comparisons destroy either an attacking or defending troop.
 		outcome.each do |item|
-			if outcome <= 0
+			if item <= 0
 				attackerTroopsDestroyed += 1
-			elsif outcome > 0
-				defenderTroopsDestroyed =+ 1
+			elsif item > 0
+				defenderTroopsDestroyed += 1
 			end	
 		end		
-
 		#return the number of attacking/defending troops that have been destroyed.
-	
 		return attackerTroopsDestroyed, defenderTroopsDestroyed 
 	end
 
@@ -410,43 +490,55 @@ class Player
 		country.troops -= number.to_i
 	end
 	
-	def attack(attackingCountry, defendingCountry, defendingPlayer, troopsAttacker, troopsDefender)
+	def attack(attackingCountry, defendingCountry, defendingPlayer, troopsAttacker, troopsDefender, game)
+		
+		game.log("#{self.name} attacked #{defendingCountry.name} owned by #{defendingPlayer.name} from #{attackingCountry.name} with #{troopsAttacker} (Total: #{attackingCountry.troops}) troops.")
+		game.log("#{defendingPlayer.name} defended with #{troopsDefender} troops.")	
+ 
+		game.log("ATTACKING - #{troopsAttacker}, DEFENDING - #{troopsDefender}")
 
-		atd = 0
-		dtd = 0
-
-		while troopsAttacker > 0 || troopsDefender > 0
+		until troopsAttacker == 0 || troopsDefender == 0
+			
 			if troopsAttacker >= 3 && troopsDefender >= 2
 				a, d = roll_attack_dice(3, 2)
-			elsif troopsAttacker >= 3 && troopsDefender = 1
+			elsif troopsAttacker >= 3 && troopsDefender == 1
 				a, d = roll_attack_dice(3, 1)
-			elsif troopsAttacker = 2 && troopsDefender = 1
+			elsif troopsAttacker == 2 && troopsDefender >= 2 
 				a, d = roll_attack_dice(2, 2)
-			elsif troopsAttacker = 2 && troopsDefender = 1
+			elsif troopsAttacker == 2 && troopsDefender == 1
 				a, d = roll_attack_dice(2, 1)
-			elsif troopsAttacker = 1 && troopsDefender = 1
+			elsif troopsAttacker == 1 && troopsDefender == 1
 				a, d = roll_attack_dice(1, 1)
-			elsif troopsAttacker = 1 && troopsDefender = 2
+			elsif troopsAttacker == 1 && troopsDefender >= 2
 				a, d = roll_attack_dice(1, 2)
 			end
-
+			
 			troopsAttacker -= a
 			troopsDefender -= d
-		
-			atd += a
-			dtd += d
+
+			game.log("ATTACKING - #{troopsAttacker}, DEFENDING - #{troopsDefender}")
+
 		end
-			@player.subTroops(attackingCountry, atd)
-			@player.subTroops(defendingCountry, dtd)
-		
+
 		if troopsDefender === 0 
-			defendingCountry.owner = @player
-			@player.countries_owned.push(defendingCountry)
+			defendingCountry.owner = self
+			defendingCountry.troops = troopsAttacker
+
+			attackingCountry.troops = 1
+
+			self.countries_owned.push(defendingCountry)
 			defendingPlayer.countries_owned.delete(defendingCountry)
-			defendingCountry.troops = (troopsAttacker - atd)
 			
+			game.log("#{self.name} successfully captured #{defendingCountry.name}.")
+			game.log("#{defendingCountry.name} now has #{defendingCountry.troops} troops holding it.")
+
+		elsif troopsAttacker === 0
+			attackingCountry.troops = 1
+			defendingCountry.troops = troopsDefender
+
+			game.log("#{self.name} failed to capture #{defendingCountry.name}.")
+			game.log("#{defendingCountry.name} now has #{defendingCountry.troops} troops holding it.")
 		end
-			
 	end
 	
 end
@@ -454,14 +546,15 @@ end
 
 class Country
 
-	attr_reader :connections, :name, :owner, :troops, :region
-	attr_writer :owner, :troops
+	attr_reader :connections, :name, :owner, :troops, :region, :regionObject, :connectionsObjects
+	attr_writer :owner, :troops, :regionObject, :connectionsObjects
 
 	def initialize(name, connections, region, troops = 0)
 		@connections = connections
 		@name = name
 		@region = region
 		@troops = troops
+		@connectionsObjects = Array.new
 	end
 
 end

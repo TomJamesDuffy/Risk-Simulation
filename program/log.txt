@@ -1,91 +1,943 @@
 World database has been created
 2 players have been set up.
 Countries have been assigned to country objects.
-Computer 0 has been assigned Alaska.
-Computer 1 has been assigned Alberta.
-Computer 0 has been assigned Central America.
-Computer 1 has been assigned Eastern United States.
-Computer 0 has been assigned Greenland.
-Computer 1 has been assigned Northwest Territory.
-Computer 0 has been assigned Ontario.
-Computer 1 has been assigned Quebec.
-Computer 0 has been assigned Western United States.
-Computer 1 has been assigned Argentina.
-Computer 0 has been assigned Brazil.
-Computer 1 has been assigned Peru.
-Computer 0 has been assigned Venezuela.
-Computer 1 has been assigned Great Britain.
-Computer 0 has been assigned Iceland.
-Computer 1 has been assigned Northern Europe.
-Computer 0 has been assigned Scandinavia.
-Computer 1 has been assigned Southern Europe.
-Computer 0 has been assigned Ukraine.
-Computer 1 has been assigned Western Europe.
-Computer 0 has been assigned Congo.
-Computer 1 has been assigned East Africa.
-Computer 0 has been assigned Egypt.
-Computer 1 has been assigned Madagascar.
-Computer 0 has been assigned North Africa.
-Computer 1 has been assigned South Africa.
-Computer 0 has been assigned Afghanistan.
-Computer 1 has been assigned China.
-Computer 0 has been assigned India.
-Computer 1 has been assigned Irkutsk.
-Computer 0 has been assigned Japan.
-Computer 1 has been assigned Kamchatka.
-Computer 0 has been assigned Middle East.
-Computer 1 has been assigned Mongolia.
-Computer 0 has been assigned Siam.
-Computer 1 has been assigned Siberia.
-Computer 0 has been assigned Ural.
-Computer 1 has been assigned Yakutsk.
-Computer 0 has been assigned Eastern Australia.
-Computer 1 has been assigned Indonesia.
-Computer 0 has been assigned New Guinea.
-Computer 1 has been assigned Western Australia.
+Computer 1 has been assigned Alaska.
+Computer 0 has been assigned Alberta.
+Computer 1 has been assigned Central America.
+Computer 0 has been assigned Eastern United States.
+Computer 1 has been assigned Greenland.
+Computer 0 has been assigned Northwest Territory.
+Computer 1 has been assigned Ontario.
+Computer 0 has been assigned Quebec.
+Computer 1 has been assigned Western United States.
+Computer 0 has been assigned Argentina.
+Computer 1 has been assigned Brazil.
+Computer 0 has been assigned Peru.
+Computer 1 has been assigned Venezuela.
+Computer 0 has been assigned Great Britain.
+Computer 1 has been assigned Iceland.
+Computer 0 has been assigned Northern Europe.
+Computer 1 has been assigned Scandinavia.
+Computer 0 has been assigned Southern Europe.
+Computer 1 has been assigned Ukraine.
+Computer 0 has been assigned Western Europe.
+Computer 1 has been assigned Congo.
+Computer 0 has been assigned East Africa.
+Computer 1 has been assigned Egypt.
+Computer 0 has been assigned Madagascar.
+Computer 1 has been assigned North Africa.
+Computer 0 has been assigned South Africa.
+Computer 1 has been assigned Afghanistan.
+Computer 0 has been assigned China.
+Computer 1 has been assigned India.
+Computer 0 has been assigned Irkutsk.
+Computer 1 has been assigned Japan.
+Computer 0 has been assigned Kamchatka.
+Computer 1 has been assigned Middle East.
+Computer 0 has been assigned Mongolia.
+Computer 1 has been assigned Siam.
+Computer 0 has been assigned Siberia.
+Computer 1 has been assigned Ural.
+Computer 0 has been assigned Yakutsk.
+Computer 1 has been assigned Eastern Australia.
+Computer 0 has been assigned Indonesia.
+Computer 1 has been assigned New Guinea.
+Computer 0 has been assigned Western Australia.
 Players have been assigned their starting countries.
-Computer 0 owns Alaska which has 1 reinforcements.
-Computer 0 owns Central America which has 2 reinforcements.
-Computer 0 owns Greenland which has 2 reinforcements.
-Computer 0 owns Ontario which has 4 reinforcements.
-Computer 0 owns Western United States which has 5 reinforcements.
-Computer 0 owns Brazil which has 2 reinforcements.
-Computer 0 owns Venezuela which has 3 reinforcements.
-Computer 0 owns Iceland which has 5 reinforcements.
-Computer 0 owns Scandinavia which has 3 reinforcements.
-Computer 0 owns Ukraine which has 2 reinforcements.
-Computer 0 owns Congo which has 1 reinforcements.
-Computer 0 owns Egypt which has 3 reinforcements.
-Computer 0 owns North Africa which has 2 reinforcements.
-Computer 0 owns Afghanistan which has 3 reinforcements.
-Computer 0 owns India which has 6 reinforcements.
-Computer 0 owns Japan which has 5 reinforcements.
-Computer 0 owns Middle East which has 3 reinforcements.
-Computer 0 owns Siam which has 3 reinforcements.
-Computer 0 owns Ural which has 1 reinforcements.
-Computer 0 owns Eastern Australia which has 3 reinforcements.
-Computer 0 owns New Guinea which has 2 reinforcements.
-Computer 1 owns Alberta which has 4 reinforcements.
-Computer 1 owns Eastern United States which has 2 reinforcements.
-Computer 1 owns Northwest Territory which has 5 reinforcements.
-Computer 1 owns Quebec which has 1 reinforcements.
-Computer 1 owns Argentina which has 4 reinforcements.
-Computer 1 owns Peru which has 4 reinforcements.
-Computer 1 owns Great Britain which has 3 reinforcements.
-Computer 1 owns Northern Europe which has 1 reinforcements.
-Computer 1 owns Southern Europe which has 2 reinforcements.
-Computer 1 owns Western Europe which has 1 reinforcements.
-Computer 1 owns East Africa which has 2 reinforcements.
-Computer 1 owns Madagascar which has 2 reinforcements.
-Computer 1 owns South Africa which has 2 reinforcements.
-Computer 1 owns China which has 2 reinforcements.
-Computer 1 owns Irkutsk which has 2 reinforcements.
-Computer 1 owns Kamchatka which has 9 reinforcements.
-Computer 1 owns Mongolia which has 1 reinforcements.
-Computer 1 owns Siberia which has 3 reinforcements.
-Computer 1 owns Yakutsk which has 3 reinforcements.
-Computer 1 owns Indonesia which has 4 reinforcements.
-Computer 1 owns Western Australia which has 4 reinforcements.
+Computer 1 owns Alaska which has 2 troops.
+Computer 1 owns Central America which has 4 troops.
+Computer 1 owns Greenland which has 1 troops.
+Computer 1 owns Ontario which has 5 troops.
+Computer 1 owns Western United States which has 4 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 2 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns Congo which has 4 troops.
+Computer 1 owns Egypt which has 2 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 4 troops.
+Computer 1 owns Japan which has 2 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 0 owns Alberta which has 2 troops.
+Computer 0 owns Eastern United States which has 1 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Quebec which has 2 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 2 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 2 troops.
+Computer 0 owns Southern Europe which has 4 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 3 troops.
+Computer 0 owns Madagascar which has 6 troops.
+Computer 0 owns South Africa which has 5 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
 Players have been assigned their starting reinforcements.
-Computer 0 gained 7 reinforcements from territories.
+---------------------------------------------------------
+GAME START
+---------------------------------------------------------
+Turn 1 has begun.
+Computer 1 gained 7 reinforcements from territories.
+Computer 1 gained a total of 7 reinforcements this turn.
+Computer 1 identified North America as being a priority, therefore most reinforcements have been allocated there.
+Computer 1 attacked Alberta owned by Computer 0 from Western United States with 4 (Total: 5) troops.
+Computer 0 defended with 2 troops.
+ATTACKING - 4, DEFENDING - 2
+ATTACKING - 2, DEFENDING - 2
+ATTACKING - 2, DEFENDING - 0
+Computer 1 successfully captured Alberta.
+Alberta now has 2 troops holding it.
+Computer 1 attacked Quebec owned by Computer 0 from Ontario with 5 (Total: 6) troops.
+Computer 0 defended with 2 troops.
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 5, DEFENDING - 0
+Computer 1 successfully captured Quebec.
+Quebec now has 5 troops holding it.
+Computer 1 attacked Eastern United States owned by Computer 0 from Quebec with 4 (Total: 5) troops.
+Computer 0 defended with 1 troops.
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 4, DEFENDING - 0
+Computer 1 successfully captured Eastern United States.
+Eastern United States now has 4 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 3 troops.
+Computer 1 owns Central America which has 5 troops.
+Computer 1 owns Greenland which has 2 troops.
+Computer 1 owns Ontario which has 1 troops.
+Computer 1 owns Western United States which has 1 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns Congo which has 4 troops.
+Computer 1 owns Egypt which has 2 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 2 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 2 troops.
+Computer 1 owns Quebec which has 1 troops.
+Computer 1 owns Eastern United States which has 4 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 2 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 2 troops.
+Computer 0 owns Southern Europe which has 4 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 3 troops.
+Computer 0 owns Madagascar which has 6 troops.
+Computer 0 owns South Africa which has 5 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Turn 2 has begun.
+Computer 0 gained 6 reinforcements from territories.
+Computer 0 gained a total of 6 reinforcements this turn.
+Computer 0 identified Africa as being a priority, therefore most reinforcements have been allocated there.
+Computer 0 attacked Congo owned by Computer 1 from South Africa with 6 (Total: 7) troops.
+Computer 1 defended with 4 troops.
+ATTACKING - 6, DEFENDING - 4
+ATTACKING - 5, DEFENDING - 3
+ATTACKING - 3, DEFENDING - 3
+ATTACKING - 3, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 0
+Computer 0 successfully captured Congo.
+Congo now has 3 troops holding it.
+Computer 0 attacked Egypt owned by Computer 1 from Madagascar with 7 (Total: 8) troops.
+Computer 1 defended with 2 troops.
+ATTACKING - 7, DEFENDING - 2
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 4, DEFENDING - 0
+Computer 0 successfully captured Egypt.
+Egypt now has 4 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 3 troops.
+Computer 1 owns Central America which has 5 troops.
+Computer 1 owns Greenland which has 2 troops.
+Computer 1 owns Ontario which has 1 troops.
+Computer 1 owns Western United States which has 1 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 2 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 2 troops.
+Computer 1 owns Quebec which has 1 troops.
+Computer 1 owns Eastern United States which has 4 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 2 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 5 troops.
+Computer 0 owns Madagascar which has 1 troops.
+Computer 0 owns South Africa which has 1 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 3 troops.
+Computer 0 owns Egypt which has 4 troops.
+Turn 3 has begun.
+Computer 1 gained 7 reinforcements from territories.
+Computer 1 gained a total of 7 reinforcements this turn.
+Computer 1 identified North America as being a priority, therefore most reinforcements have been allocated there.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 4 troops.
+Computer 1 owns Central America which has 6 troops.
+Computer 1 owns Greenland which has 3 troops.
+Computer 1 owns Ontario which has 2 troops.
+Computer 1 owns Western United States which has 2 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 4 troops.
+Computer 1 owns Quebec which has 2 troops.
+Computer 1 owns Eastern United States which has 5 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 2 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 5 troops.
+Computer 0 owns Madagascar which has 1 troops.
+Computer 0 owns South Africa which has 1 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 3 troops.
+Computer 0 owns Egypt which has 4 troops.
+Turn 4 has begun.
+Computer 0 gained 4 reinforcements from territories.
+Computer 0 gained a total of 4 reinforcements this turn.
+Computer 0 identified Africa as being a priority, therefore most reinforcements have been allocated there.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 4 troops.
+Computer 1 owns Central America which has 6 troops.
+Computer 1 owns Greenland which has 3 troops.
+Computer 1 owns Ontario which has 2 troops.
+Computer 1 owns Western United States which has 2 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 4 troops.
+Computer 1 owns Quebec which has 2 troops.
+Computer 1 owns Eastern United States which has 5 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 3 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 6 troops.
+Computer 0 owns Madagascar which has 2 troops.
+Computer 0 owns South Africa which has 2 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 4 troops.
+Computer 0 owns Egypt which has 5 troops.
+Turn 5 has begun.
+Computer 1 gained 4 reinforcements from territories.
+Computer 1 gained a total of 4 reinforcements this turn.
+Computer 1 identified North America as being a priority, therefore most reinforcements have been allocated there.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 6 troops.
+Computer 1 owns Central America which has 7 troops.
+Computer 1 owns Greenland which has 4 troops.
+Computer 1 owns Ontario which has 3 troops.
+Computer 1 owns Western United States which has 3 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns North Africa which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 5 troops.
+Computer 1 owns Quebec which has 3 troops.
+Computer 1 owns Eastern United States which has 6 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 3 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 6 troops.
+Computer 0 owns Madagascar which has 2 troops.
+Computer 0 owns South Africa which has 2 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 4 troops.
+Computer 0 owns Egypt which has 5 troops.
+Turn 6 has begun.
+Computer 0 gained 4 reinforcements from territories.
+Computer 0 gained a total of 4 reinforcements this turn.
+Computer 0 identified Africa as being a priority, therefore most reinforcements have been allocated there.
+Computer 0 attacked North Africa owned by Computer 1 from Egypt with 5 (Total: 6) troops.
+Computer 1 defended with 4 troops.
+ATTACKING - 5, DEFENDING - 4
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 5, DEFENDING - 0
+Computer 0 successfully captured North Africa.
+North Africa now has 5 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 6 troops.
+Computer 1 owns Central America which has 7 troops.
+Computer 1 owns Greenland which has 4 troops.
+Computer 1 owns Ontario which has 3 troops.
+Computer 1 owns Western United States which has 3 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 3 troops.
+Computer 1 owns Alberta which has 5 troops.
+Computer 1 owns Quebec which has 3 troops.
+Computer 1 owns Eastern United States which has 6 troops.
+Computer 0 owns Northwest Territory which has 4 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 3 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 5 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Turn 7 has begun.
+Computer 1 gained 2 reinforcements from territories.
+Computer 1 gained a total of 2 reinforcements this turn.
+Computer 1 identified North America as being a priority, therefore most reinforcements have been allocated there.
+Computer 1 attacked Northwest Territory owned by Computer 0 from Eastern United States with 6 (Total: 7) troops.
+Computer 0 defended with 4 troops.
+ATTACKING - 6, DEFENDING - 4
+ATTACKING - 5, DEFENDING - 3
+ATTACKING - 3, DEFENDING - 3
+ATTACKING - 2, DEFENDING - 2
+ATTACKING - 2, DEFENDING - 0
+Computer 1 successfully captured Northwest Territory.
+Northwest Territory now has 2 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 7 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 4 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Iceland which has 1 troops.
+Computer 1 owns Scandinavia which has 3 troops.
+Computer 1 owns Ukraine which has 4 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 4 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 1 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 3 troops.
+Computer 0 owns Northern Europe which has 3 troops.
+Computer 0 owns Southern Europe which has 5 troops.
+Computer 0 owns Western Europe which has 1 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 5 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Turn 8 has begun.
+Computer 0 gained 4 reinforcements from territories.
+Computer 0 gained 3 reinforcements from controlling Africa.
 Computer 0 gained a total of 7 reinforcements this turn.
+Computer 0 identified Europe as being a priority, therefore most reinforcements have been allocated there.
+Computer 0 attacked Ukraine owned by Computer 1 from Southern Europe with 7 (Total: 8) troops.
+Computer 1 defended with 4 troops.
+ATTACKING - 7, DEFENDING - 4
+ATTACKING - 7, DEFENDING - 2
+ATTACKING - 7, DEFENDING - 0
+Computer 0 successfully captured Ukraine.
+Ukraine now has 7 troops holding it.
+Computer 0 attacked Scandinavia owned by Computer 1 from Ukraine with 6 (Total: 7) troops.
+Computer 1 defended with 3 troops.
+ATTACKING - 6, DEFENDING - 3
+ATTACKING - 4, DEFENDING - 3
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 4, DEFENDING - 0
+Computer 0 successfully captured Scandinavia.
+Scandinavia now has 4 troops holding it.
+Computer 0 attacked Iceland owned by Computer 1 from Scandinavia with 3 (Total: 4) troops.
+Computer 1 defended with 1 troops.
+ATTACKING - 3, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 0
+Computer 0 successfully captured Iceland.
+Iceland now has 3 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 7 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 4 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 2 troops.
+Computer 1 owns New Guinea which has 4 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 1 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 5 troops.
+Computer 0 owns Northern Europe which has 5 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 2 troops.
+Computer 0 owns Western Australia which has 1 troops.
+Computer 0 owns Congo which has 6 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 1 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Turn 9 has begun.
+Computer 1 gained -1 reinforcements from territories.
+Computer 1 gained 5 reinforcements from controlling North America.
+Computer 1 gained a total of 4 reinforcements this turn.
+Computer 1 identified Australia as being a priority, therefore most reinforcements have been allocated there.
+Computer 1 attacked Indonesia owned by Computer 0 from New Guinea with 5 (Total: 6) troops.
+Computer 0 defended with 2 troops.
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 3, DEFENDING - 2
+ATTACKING - 1, DEFENDING - 2
+ATTACKING - 1, DEFENDING - 1
+ATTACKING - 0, DEFENDING - 1
+Computer 1 failed to capture Indonesia.
+Indonesia now has 1 troops holding it.
+Computer 1 attacked Western Australia owned by Computer 0 from Eastern Australia with 3 (Total: 4) troops.
+Computer 0 defended with 1 troops.
+ATTACKING - 3, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 0
+Computer 1 successfully captured Western Australia.
+Western Australia now has 3 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 7 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 4 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns Afghanistan which has 2 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Ural which has 4 troops.
+Computer 1 owns Eastern Australia which has 1 troops.
+Computer 1 owns New Guinea which has 1 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 3 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 3 troops.
+Computer 0 owns Great Britain which has 5 troops.
+Computer 0 owns Northern Europe which has 5 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 3 troops.
+Computer 0 owns Irkutsk which has 2 troops.
+Computer 0 owns Kamchatka which has 2 troops.
+Computer 0 owns Mongolia which has 2 troops.
+Computer 0 owns Siberia which has 6 troops.
+Computer 0 owns Yakutsk which has 5 troops.
+Computer 0 owns Indonesia which has 1 troops.
+Computer 0 owns Congo which has 6 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 1 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Turn 10 has begun.
+Computer 0 gained 4 reinforcements from territories.
+Computer 0 gained 5 reinforcements from controlling Europe.
+Computer 0 gained 3 reinforcements from controlling Africa.
+Computer 0 gained a total of 12 reinforcements this turn.
+Computer 0 identified Asia as being a priority, therefore most reinforcements have been allocated there.
+Computer 0 attacked Ural owned by Computer 1 from Yakutsk with 6 (Total: 7) troops.
+Computer 1 defended with 4 troops.
+ATTACKING - 6, DEFENDING - 4
+ATTACKING - 6, DEFENDING - 2
+ATTACKING - 6, DEFENDING - 0
+Computer 0 successfully captured Ural.
+Ural now has 6 troops holding it.
+Computer 0 attacked Afghanistan owned by Computer 1 from Ural with 5 (Total: 6) troops.
+Computer 1 defended with 2 troops.
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 1
+ATTACKING - 2, DEFENDING - 1
+ATTACKING - 2, DEFENDING - 0
+Computer 0 successfully captured Afghanistan.
+Afghanistan now has 2 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 7 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 4 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 3 troops.
+Computer 1 owns Eastern Australia which has 1 troops.
+Computer 1 owns New Guinea which has 1 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 3 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 4 troops.
+Computer 0 owns Great Britain which has 6 troops.
+Computer 0 owns Northern Europe which has 5 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 5 troops.
+Computer 0 owns Irkutsk which has 5 troops.
+Computer 0 owns Kamchatka which has 4 troops.
+Computer 0 owns Mongolia which has 4 troops.
+Computer 0 owns Siberia which has 8 troops.
+Computer 0 owns Yakutsk which has 1 troops.
+Computer 0 owns Indonesia which has 1 troops.
+Computer 0 owns Congo which has 7 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 1 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Computer 0 owns Ural which has 1 troops.
+Computer 0 owns Afghanistan which has 2 troops.
+Turn 11 has begun.
+Computer 1 gained 5 reinforcements from territories.
+Computer 1 gained 5 reinforcements from controlling North America.
+Computer 1 gained a total of 10 reinforcements this turn.
+Computer 1 identified Australia as being a priority, therefore most reinforcements have been allocated there.
+Computer 1 attacked Indonesia owned by Computer 0 from Western Australia with 5 (Total: 6) troops.
+Computer 0 defended with 1 troops.
+ATTACKING - 5, DEFENDING - 1
+ATTACKING - 5, DEFENDING - 0
+Computer 1 successfully captured Indonesia.
+Indonesia now has 5 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 8 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 5 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 4 troops.
+Computer 1 owns Eastern Australia which has 4 troops.
+Computer 1 owns New Guinea which has 4 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 1 troops.
+Computer 1 owns Indonesia which has 5 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 4 troops.
+Computer 0 owns Great Britain which has 6 troops.
+Computer 0 owns Northern Europe which has 5 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 5 troops.
+Computer 0 owns Irkutsk which has 5 troops.
+Computer 0 owns Kamchatka which has 4 troops.
+Computer 0 owns Mongolia which has 4 troops.
+Computer 0 owns Siberia which has 8 troops.
+Computer 0 owns Yakutsk which has 1 troops.
+Computer 0 owns Congo which has 7 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 1 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Computer 0 owns Ural which has 1 troops.
+Computer 0 owns Afghanistan which has 2 troops.
+Turn 12 has begun.
+Computer 0 gained 3 reinforcements from territories.
+Computer 0 gained 5 reinforcements from controlling Europe.
+Computer 0 gained 3 reinforcements from controlling Africa.
+Computer 0 gained a total of 11 reinforcements this turn.
+Computer 0 identified Asia as being a priority, therefore most reinforcements have been allocated there.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 8 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 5 troops.
+Computer 1 owns Brazil which has 1 troops.
+Computer 1 owns Venezuela which has 5 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 3 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 4 troops.
+Computer 1 owns Eastern Australia which has 4 troops.
+Computer 1 owns New Guinea which has 4 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 1 troops.
+Computer 1 owns Indonesia which has 5 troops.
+Computer 0 owns Argentina which has 3 troops.
+Computer 0 owns Peru which has 4 troops.
+Computer 0 owns Great Britain which has 6 troops.
+Computer 0 owns Northern Europe which has 6 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 6 troops.
+Computer 0 owns Irkutsk which has 6 troops.
+Computer 0 owns Kamchatka which has 5 troops.
+Computer 0 owns Mongolia which has 5 troops.
+Computer 0 owns Siberia which has 9 troops.
+Computer 0 owns Yakutsk which has 3 troops.
+Computer 0 owns Congo which has 7 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 2 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Computer 0 owns Ural which has 2 troops.
+Computer 0 owns Afghanistan which has 3 troops.
+Turn 13 has begun.
+Computer 1 gained 4 reinforcements from territories.
+Computer 1 gained 5 reinforcements from controlling North America.
+Computer 1 gained 2 reinforcements from controlling Australia.
+Computer 1 gained a total of 11 reinforcements this turn.
+Computer 1 identified South America as being a priority, therefore most reinforcements have been allocated there.
+Computer 1 attacked Argentina owned by Computer 0 from Venezuela with 8 (Total: 9) troops.
+Computer 0 defended with 3 troops.
+ATTACKING - 8, DEFENDING - 3
+ATTACKING - 8, DEFENDING - 1
+ATTACKING - 8, DEFENDING - 0
+Computer 1 successfully captured Argentina.
+Argentina now has 8 troops holding it.
+Computer 1 attacked Peru owned by Computer 0 from Argentina with 7 (Total: 8) troops.
+Computer 0 defended with 4 troops.
+ATTACKING - 7, DEFENDING - 4
+ATTACKING - 5, DEFENDING - 4
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 3, DEFENDING - 2
+ATTACKING - 2, DEFENDING - 1
+ATTACKING - 1, DEFENDING - 1
+ATTACKING - 1, DEFENDING - 0
+Computer 1 successfully captured Peru.
+Peru now has 1 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 8 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 5 troops.
+Computer 1 owns Brazil which has 5 troops.
+Computer 1 owns Venezuela which has 1 troops.
+Computer 1 owns India which has 5 troops.
+Computer 1 owns Japan which has 4 troops.
+Computer 1 owns Middle East which has 2 troops.
+Computer 1 owns Siam which has 5 troops.
+Computer 1 owns Eastern Australia which has 4 troops.
+Computer 1 owns New Guinea which has 5 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 1 troops.
+Computer 1 owns Indonesia which has 5 troops.
+Computer 1 owns Argentina which has 1 troops.
+Computer 1 owns Peru which has 1 troops.
+Computer 0 owns Great Britain which has 6 troops.
+Computer 0 owns Northern Europe which has 6 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 7 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 6 troops.
+Computer 0 owns Irkutsk which has 6 troops.
+Computer 0 owns Kamchatka which has 5 troops.
+Computer 0 owns Mongolia which has 5 troops.
+Computer 0 owns Siberia which has 9 troops.
+Computer 0 owns Yakutsk which has 3 troops.
+Computer 0 owns Congo which has 7 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 2 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Computer 0 owns Ural which has 2 troops.
+Computer 0 owns Afghanistan which has 3 troops.
+Turn 14 has begun.
+Computer 0 gained 7 reinforcements from territories.
+Computer 0 gained 5 reinforcements from controlling Europe.
+Computer 0 gained 3 reinforcements from controlling Africa.
+Computer 0 gained a total of 15 reinforcements this turn.
+Computer 0 identified Asia as being a priority, therefore most reinforcements have been allocated there.
+Computer 0 attacked Middle East owned by Computer 1 from Afghanistan with 4 (Total: 5) troops.
+Computer 1 defended with 2 troops.
+ATTACKING - 4, DEFENDING - 2
+ATTACKING - 4, DEFENDING - 0
+Computer 0 successfully captured Middle East.
+Middle East now has 4 troops holding it.
+Computer 0 attacked Japan owned by Computer 1 from Middle East with 3 (Total: 4) troops.
+Computer 1 defended with 4 troops.
+ATTACKING - 3, DEFENDING - 4
+ATTACKING - 2, DEFENDING - 3
+ATTACKING - 0, DEFENDING - 3
+Computer 0 failed to capture Japan.
+Japan now has 3 troops holding it.
+Computer 0 attacked Japan owned by Computer 1 from Ural with 4 (Total: 5) troops.
+Computer 1 defended with 3 troops.
+ATTACKING - 4, DEFENDING - 3
+ATTACKING - 3, DEFENDING - 2
+ATTACKING - 2, DEFENDING - 1
+ATTACKING - 1, DEFENDING - 1
+ATTACKING - 0, DEFENDING - 1
+Computer 0 failed to capture Japan.
+Japan now has 1 troops holding it.
+Computer 0 attacked Japan owned by Computer 1 from Yakutsk with 4 (Total: 5) troops.
+Computer 1 defended with 1 troops.
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 1
+ATTACKING - 3, DEFENDING - 0
+Computer 0 successfully captured Japan.
+Japan now has 3 troops holding it.
+Computer 0 attacked India owned by Computer 1 from Siberia with 10 (Total: 11) troops.
+Computer 1 defended with 5 troops.
+ATTACKING - 10, DEFENDING - 5
+ATTACKING - 10, DEFENDING - 3
+ATTACKING - 8, DEFENDING - 3
+ATTACKING - 6, DEFENDING - 3
+ATTACKING - 5, DEFENDING - 2
+ATTACKING - 5, DEFENDING - 0
+Computer 0 successfully captured India.
+India now has 5 troops holding it.
+Computer 0 attacked Siam owned by Computer 1 from India with 4 (Total: 5) troops.
+Computer 1 defended with 5 troops.
+ATTACKING - 4, DEFENDING - 5
+ATTACKING - 4, DEFENDING - 3
+ATTACKING - 4, DEFENDING - 1
+ATTACKING - 4, DEFENDING - 0
+Computer 0 successfully captured Siam.
+Siam now has 4 troops holding it.
+At the end of the turn the map looks as follows
+Computer 1 owns Alaska which has 8 troops.
+Computer 1 owns Central America which has 8 troops.
+Computer 1 owns Greenland which has 5 troops.
+Computer 1 owns Ontario which has 4 troops.
+Computer 1 owns Western United States which has 5 troops.
+Computer 1 owns Brazil which has 5 troops.
+Computer 1 owns Venezuela which has 1 troops.
+Computer 1 owns Eastern Australia which has 4 troops.
+Computer 1 owns New Guinea which has 5 troops.
+Computer 1 owns Alberta which has 6 troops.
+Computer 1 owns Quebec which has 4 troops.
+Computer 1 owns Eastern United States which has 2 troops.
+Computer 1 owns Northwest Territory which has 2 troops.
+Computer 1 owns Western Australia which has 1 troops.
+Computer 1 owns Indonesia which has 5 troops.
+Computer 1 owns Argentina which has 1 troops.
+Computer 1 owns Peru which has 1 troops.
+Computer 0 owns Great Britain which has 6 troops.
+Computer 0 owns Northern Europe which has 6 troops.
+Computer 0 owns Southern Europe which has 1 troops.
+Computer 0 owns Western Europe which has 3 troops.
+Computer 0 owns East Africa which has 9 troops.
+Computer 0 owns Madagascar which has 3 troops.
+Computer 0 owns South Africa which has 4 troops.
+Computer 0 owns China which has 8 troops.
+Computer 0 owns Irkutsk which has 9 troops.
+Computer 0 owns Kamchatka which has 7 troops.
+Computer 0 owns Mongolia which has 7 troops.
+Computer 0 owns Siberia which has 1 troops.
+Computer 0 owns Yakutsk which has 1 troops.
+Computer 0 owns Congo which has 7 troops.
+Computer 0 owns Egypt which has 1 troops.
+Computer 0 owns North Africa which has 5 troops.
+Computer 0 owns Ukraine which has 2 troops.
+Computer 0 owns Scandinavia which has 1 troops.
+Computer 0 owns Iceland which has 3 troops.
+Computer 0 owns Ural which has 1 troops.
+Computer 0 owns Afghanistan which has 1 troops.
+Computer 0 owns Middle East which has 1 troops.
+Computer 0 owns Japan which has 3 troops.
+Computer 0 owns India which has 1 troops.
+Computer 0 owns Siam which has 4 troops.
+Turn 15 has begun.
+Computer 1 gained 5 reinforcements from territories.
+Computer 1 gained 5 reinforcements from controlling North America.
+Computer 1 gained 2 reinforcements from controlling Australia.
+Computer 1 gained 2 reinforcements from controlling South America.
+Computer 1 gained a total of 14 reinforcements this turn.
+Computer 1 identified Asia as being a priority, therefore most reinforcements have been allocated there.
