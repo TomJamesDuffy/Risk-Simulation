@@ -136,14 +136,12 @@ require 'sqlite3'
 		@country_array.each do |country|
 			if count < @players.length
 				@players[count].add(country)
-				@players[count].addTroops(country, 1)
 				country.owner = @players[count]
 				log("#{@players[count].name} has been assigned #{country.name}.")
 				count += 1
 			else
 				count = 0
 				@players[count].add(country)
-				@players[count].addTroops(country, 1)
 				country.owner = @players[count]
 				log("#{@players[count].name} has been assigned #{country.name}.")
 				count = 1
@@ -181,6 +179,7 @@ require 'sqlite3'
 
 			@region_array.push(region_object)
 		end	
+		
 	end
 
 	def setup_starting_reinforcements
@@ -227,6 +226,14 @@ require 'sqlite3'
 		end
 	end		
 	
+	def player_check
+		@players.each do |player|
+			if player.countries_owned.length == 0
+				@players.delete(player)
+			end
+		end
+	end
+
 	def end_game(player)
 		puts "#{player.name} has won by conquering all of the countries!"
 		log("#{player.name} has won by conquering all of the countries!")
@@ -243,6 +250,9 @@ class Strategy
 		@player = player
 		@target_region = ""
 		@game = game
+		@fresh_expansion = false
+		@reinforcement_focus = ""
+		@attack_focus = ""
 	end
 	
 	#Create metrics for computer to evaluate map.
@@ -268,8 +278,8 @@ class Strategy
 					cou_count_player += 1
 				end
 			end
-			troop_density[region] = (cou_den_player.to_f/cou_den_all.to_f).round(2)
-			country_density[region] = (cou_count_player.to_f/cou_count.to_f).round(2)
+			troop_density[region] = (cou_den_player.to_f/cou_den_all.to_f).round(4)
+			country_density[region] = (cou_count_player.to_f/cou_count.to_f).round(4)
 
 			cou_den_all = 0
 			cou_den_player = 0
@@ -279,76 +289,97 @@ class Strategy
 		metrics["Metrics"] = [troop_density, country_density]
 	end	
 
+	def identify_focus
+		metrics = create_metrics		
 
-	#identify appropriate strategy
-	def allocate_reinforcements(metrics)
-	#Assign reinformcements to strategy and random
-		strategy = (@player.reinforcement_pool * 0.7).round(0)
-		random_rf = @player.reinforcement_pool - strategy
-		tracker = 0.0
-		fresh_expansion = false
-
-		#Identify region with greatest potential
+		owned = []
+		no_presence = []
+		some_presence = []
+		
+		#Sort regions into presence
 		metrics[0].each do |key, value| 
-			if (tracker < value) && (value != 1)
-				tracker = value
-				@target_region = key
+			if value == 1
+				owned.push([key, value])
 			elsif value == 0
-				fresh_expansion = true
-				#SELECT REGION/REGIONS IF FRESH EXPANSION IS REQUIRED.		
-				#FRESH EXPANSION IS WHEN THE PLAYER OWNS X REGIONS BUT NO MORE. 
-				#AS A RESULT A REGION WITH NO COUNTRIES IS SELECTED (VALUE = 0).
-				#AS THE FOLLOWING COUNTRIES PLACES REINFORCEMENTS ONLY INTO REGIONS YOU ALREADY HAVE A PRESENCE IN 
-				#NEED TO ADD LOGIC TO ADD REINFORCEMENTS TO COUNTRIES THAT ARE BORDERING UNOWNED REGIONS.
-			end	
+				no_presence.push([key, value])
+			else
+				some_presence.push([key, value])
+				some_presence.sort! {|a,b| a[1] <=> b[1]}
+			end
 		end
 
-		@game.log("#{@player.name} identified #{@target_region.name} as being a priority, therefore most reinforcements have been allocated there.")		
+		#Identify target region based on sorting
+		if some_presence != []
+			@target_region = some_presence[-1][0] #target region with greatest presence
+			return @target_region
+		elsif no_presence != []
+			foothold = []
+			@player.countries_owned.each do |country|
+				country.connectionsObjects.each do |country_connection|
+					if !@player.regions_owned.include? country_connection.regionObject
+						foothold.push([country, country_connection])
+					end
+				end
+			end
+			return foothold
+		else	
+			@game.end_game(@player)
+		end			
+	end
 
-		#Allocate 70% of reinforcement pool to region with greatest potential		
-		if fresh_expansion = false
+	def allocate_reinforcements(focus)
+		if focus.class == Region #if we get a region from identify_focus...
+			strategy = (@player.reinforcement_pool * 0.7).round(0)
+			random_rf = @player.reinforcement_pool - strategy
+		
+
+			@game.log("#{@player.name} identified #{focus.name} as being a priority, therefore the majority of reinforcements have been allocated to this region.")		
 			while strategy > 0 
 				@player.countries_owned.each do |country|
-					if country.region === @target_region.name
+					if country.region == @target_region.name
 						@player.addTroops(country, 1)
 						strategy -= 1
 					end
 				end
 			end
 		
-
-
-		#Allocate remainder of reinforcement pool randomly among the players owned countries
 			while random_rf > 0
 				random = Random.rand*(@player.countries_owned.length).ceil
 				@player.addTroops(@player.countries_owned[random], 1)
 				random_rf -= 1
 			end
-		elsif fresh_expansion  = true
 
-		#LOGIC IF FRESH EXPANSION IS REQUIRED
-			
-
+		elsif focus.class == Array #If we get an array from identify_focus...
+			@game.log("#{@player.name} identified #{focus[0][1].name} as being a priority, therefore reinforcements have been allocated to #{focus[0][0].name} for an imminent attack.")		
+			while @player.reinforcement_pool > 0
+				@player.addTroops(focus[0][0], 1)
+			end
 		end
-		
 	end
+	
 
 	def identify_targets
 		attackFrom = ""
 		attackTo = ""
-
-		@player.countries_owned.each do |country|
-			if country.regionObject === @target_region && country.troops > 3
-				attackFrom = country
-				country.connectionsObjects.each do |country_2|
-					@target_region.countries.each do |focus_region_c|
-						if (focus_region_c.name === country_2.name) && ((country.troops - focus_region_c.troops) > 2) && (country_2.owner != @player)
-							attackTo = country_2
+		focus = identify_focus
+		if focus.class == Region
+			@player.countries_owned.each do |country|
+				if country.regionObject == focus && country.troops > 3 
+					country.connectionsObjects.each do |country_2|
+						focus.countries.each do |focus_region_c|
+							if (focus_region_c.name === country_2.name) && ((country.troops - focus_region_c.troops) > 2) && (country_2.owner != @player)
+								attackFrom = country
+								attackTo = country_2
+							end
 						end
 					end
 				end
 			end
-		end			
+	
+		elsif focus.class == Array
+			attackFrom = focus[0][0]
+			attackTo = focus[0][1]	
+		end
 		return attackFrom, attackTo
 	end
 	
@@ -356,20 +387,20 @@ class Strategy
 		attacksCompleted = false
 		until attacksCompleted == true 
 			attackCountry, defendCountry = identify_targets
-			if attackCountry.class == Country && defendCountry.class == Country
+			if attackCountry.class == Country && defendCountry.class == Country && (defendCountry.owner != @player) && ((attackCountry.troops - defendCountry.troops) > 2)
 				@player.attack(attackCountry, defendCountry, defendCountry.owner, attackCountry.troops - 1, defendCountry.troops, @game)
 			else
 				attacksCompleted = true
 			end
-			 
 		end
 	end
 
 	#Execute strategy		
 	def execute
-		allocate_reinforcements(create_metrics)
+		allocate_reinforcements(identify_focus)
 		attack_targets
 	end
+
 
 end
 
@@ -388,15 +419,21 @@ class Player
 	def taketurn(region_array, country_array, game)
 		# Count reinforcements earned.
 		# Reinforcements related to countries held.
-		@reinforcement_pool += ((@countries_owned.length)/3).ceil
-		game.log("#{self.name} gained #{@reinforcement_pool} reinforcements from territories.")
+		if ((@countries_owned.length)/3) < 3
+			extra = 3
+		else
+			extra = @countries_owned.length/3
+		end
+
+		@reinforcement_pool += extra 
+		game.log("#{self.name} gained #{extra} reinforcements from territories. Reinforcement pool: #{@reinforcement_pool}")
 
 		#Reinforcements related to regions held.
 		region_array.each do |region|
 			if region.countries - countries_owned === []
 				regions_owned.push(region)
 				@reinforcement_pool += region.reinforcements
-				game.log("#{self.name} gained #{region.reinforcements} reinforcements from controlling #{region.name}.")
+				game.log("#{self.name} gained #{region.reinforcements} reinforcements from controlling #{region.name}. Reinforcement pool: #{@reinforcement_pool}")
 			else
 				regions_owned.delete(region)
 			end
@@ -482,8 +519,10 @@ class Player
 	end
 
 	def addTroops(country, number)
-		country.troops += number.to_i
-		@reinforcement_pool -= 1
+		if @reinforcement_pool > 0
+			country.troops += number.to_i
+			@reinforcement_pool -= 1
+		end
 	end
 
 	def subTroops(country, number)
@@ -539,6 +578,9 @@ class Player
 			game.log("#{self.name} failed to capture #{defendingCountry.name}.")
 			game.log("#{defendingCountry.name} now has #{defendingCountry.troops} troops holding it.")
 		end
+		
+		#Player check
+		game.player_check	
 	end
 	
 end
@@ -549,7 +591,7 @@ class Country
 	attr_reader :connections, :name, :owner, :troops, :region, :regionObject, :connectionsObjects
 	attr_writer :owner, :troops, :regionObject, :connectionsObjects
 
-	def initialize(name, connections, region, troops = 0)
+	def initialize(name, connections, region, troops = 1)
 		@connections = connections
 		@name = name
 		@region = region
